@@ -1,0 +1,29 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: pligg
+  pool: 5
+  username: root
+  password: password
+  socket: /tmp/mysql.sock
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: pligg_test
+  pool: 5
+  username: root
+  password: password
+  socket: /tmp/mysql.sock
+
+# i use openshift, customize as necessary
+production:
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: "<%=ENV['OPENSHIFT_APP_NAME']%>"
+  username: "<%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%>"
+  password: "<%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%>"
+  host: <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
+  port: <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
+  socket: /tmp/mysql.sock
